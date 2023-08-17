@@ -22,7 +22,8 @@ export const getAnimeTrailers = async () => {
     );
     if (response.ok) {
       const topAnimeData = await response.json();
-      const randomNumber = Math.floor(Math.random() * 10);
+      var randomNumber = Math.floor(Math.random() * 10);
+      console.log(randomNumber);
       console.log(topAnimeData);
       const query = topAnimeData.results?.[randomNumber].id;
       console.log(query);
