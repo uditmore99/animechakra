@@ -14,7 +14,7 @@ export const getTopAiringAnime = async () => {
   }
 };
 
-export const getAnimeTrailers = async () => {
+export const getAnimeTrailers = async (randomNumber) => {
   try {
     const response = await fetch(
       "https://api.consumet.org/anime/gogoanime/top-airing",
@@ -22,9 +22,9 @@ export const getAnimeTrailers = async () => {
     );
     if (response.ok) {
       const topAnimeData = await response.json();
-      var randomNumber = Math.floor(Math.random() * 10);
-      console.log(randomNumber);
-      console.log(topAnimeData);
+      // const randomNumber = Math.floor(Math.random() * 10);
+      // console.log(randomNumber);
+      // console.log(topAnimeData);
       const query = topAnimeData.results?.[randomNumber].id;
       console.log(query);
 

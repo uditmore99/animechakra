@@ -1,12 +1,14 @@
 import { getAnimeTrailers } from "@/utils/getTopAiringAnimeData";
 
-export const GET = async () => {
+export const POST = async (request) => {
   try {
-    const response = await getAnimeTrailers();
-    console.log("anime trailers are fetch successfully!");
+    const { randomNumber } = await request.json();
+    const response = await getAnimeTrailers(randomNumber);
+    console.log(response);
 
     return new Response(JSON.stringify(response), { status: 200 });
   } catch (error) {
     console.log(error);
+    return new Response("An error occurred.", { status: 500 });
   }
 };

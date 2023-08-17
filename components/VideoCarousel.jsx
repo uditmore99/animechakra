@@ -8,14 +8,22 @@ const VideoCarousel = () => {
   const [topAiringAnimeSynopsis, setTopAiringAnimeSynopsis] = useState();
 
   useEffect(() => {
+    const randomNumber = Math.floor(Math.random() * 10);
     const getTopAiringAnime = async () => {
-      const serRes = await fetch("/api/top-airing-anime");
-
-      const response = await serRes.json();
-
-      setTopAiringAnimeTralerUrl(response[0]);
-      setTopAiringAnimeTitle(response[1]);
-      setTopAiringAnimeSynopsis(response[2]);
+      const serRes = await fetch("/api/top-airing-anime", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ randomNumber }),
+      });
+      if (serRes.ok) {
+        // console.log(response);
+        const response = await serRes.json();
+        setTopAiringAnimeTralerUrl(response[0]);
+        setTopAiringAnimeTitle(response[1]);
+        setTopAiringAnimeSynopsis(response[2]);
+      }
     };
     getTopAiringAnime();
   }, []);
