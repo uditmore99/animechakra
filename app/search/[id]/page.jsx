@@ -4,18 +4,51 @@ import SearchAnimeCard from "@/components/SearchAnimeCard";
 import { useState, useEffect } from "react";
 
 const SearchAnime = ({ params }) => {
+  // const [animeId, setAnimeId] = useState("");
   const [animeId, setAnimeId] = useState(convertURLString(params.id));
+
+  const [animeData, setAnimeData] = useState();
 
   useEffect(() => {
     setAnimeId(convertURLString(params.id));
   }, [params.id]);
 
+  useEffect(() => {
+    const getSearchData = async () => {
+      const serRes = await fetch(`/api/search`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ animeId }),
+      });
+      if (serRes.ok) {
+        const respData = await serRes.json();
+        setAnimeData(await respData?.results);
+        //  setAnimeTitle(response?.results?.[0].title?.userPreferred);
+      }
+    };
+    getSearchData();
+  }, [animeId]);
+
+  useEffect(() => {
+    console.log(animeData);
+  }, [animeData]);
+
   return (
     <>
-      {" "}
-      <div>The name of anime is {animeId}</div>
-      <br />
-      <SearchAnimeCard />
+      <div className="grid grid-cols-2 md:grid-cols-5 m-6 gap-10 sm:grid-cols-5 sm:gap-5">
+        {animeData?.map((anime) => (
+          <SearchAnimeCard
+            key={anime.id}
+            id={anime.id}
+            title={anime.title.userPreferred}
+            genre={anime?.genres.map((genre) => " " + genre + " ")}
+            //   genre={displayedGenres.join(", ")}
+            imageUrl={anime.image}
+          />
+        ))}
+      </div>
     </>
   );
 };

@@ -6,7 +6,7 @@ const AnimeCard = ({ id, title, genre, imageUrl }) => {
   const displayedGenres = genre.slice(0, 3);
 
   return (
-    <div className="bg-white transition hover:scale-110 rounded-xl shadow-md overflow-hidden relative hover:pointe">
+    <div className="bg-white transition hover:scale-110 rounded-xl overflow-hidden relative hover:cursor-pointer shadow-xl ">
       <img className="" src={imageUrl} alt={title} />
       <div className="absolute inset-0 p-4 flex flex-col justify-end bg-gradient-to-t from-black to-transparent">
         <h2 className="text-sm font-semibold text-white md:text-sm lg:text-xl">
