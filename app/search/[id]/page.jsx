@@ -1,6 +1,7 @@
 "use client";
 
 import SearchAnimeCard from "@/components/SearchAnimeCard";
+
 import { useState, useEffect } from "react";
 
 const SearchAnime = ({ params }) => {
@@ -24,6 +25,7 @@ const SearchAnime = ({ params }) => {
       });
       if (serRes.ok) {
         const respData = await serRes.json();
+
         setAnimeData(await respData?.results);
         //  setAnimeTitle(response?.results?.[0].title?.userPreferred);
       }
@@ -31,9 +33,9 @@ const SearchAnime = ({ params }) => {
     getSearchData();
   }, [animeId]);
 
-  useEffect(() => {
+  if (animeData) {
     console.log(animeData);
-  }, [animeData]);
+  }
 
   return (
     <>
@@ -44,8 +46,13 @@ const SearchAnime = ({ params }) => {
             id={anime.id}
             title={anime.title.userPreferred}
             genre={anime?.genres.map((genre) => " " + genre + " ")}
-            //   genre={displayedGenres.join(", ")}
-            imageUrl={anime.image}
+            imageurl={anime.image}
+            coverUrl={anime.cover}
+            description={anime.description}
+            popularity={anime.popularity}
+            rating={anime.rating}
+            releaseDate={anime.releaseDate}
+            type={anime.type}
           />
         ))}
       </div>
