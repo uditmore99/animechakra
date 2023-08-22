@@ -15,42 +15,44 @@ export const getTopAiringAnime = async () => {
 };
 
 export const getAnimeTrailers = async (randomNumber) => {
+  var trailerUrl;
   try {
     const response = await fetch(
-      "https://api.consumet.org/anime/gogoanime/top-airing",
+      "https://consumet-org-clone.vercel.app/meta/anilist/trending",
       { method: "GET" }
     );
     if (response.ok) {
       const topAnimeData = await response.json();
-      // const randomNumber = Math.floor(Math.random() * 10);
+
       // console.log(randomNumber);
       // console.log(topAnimeData);
-      const query = topAnimeData.results?.[randomNumber].id;
+      const query = topAnimeData.results[randomNumber]?.id;
       console.log(query);
 
       try {
         const trailerDataResp = await fetch(
-          "https://api.jikan.moe/v4/anime?q=" + query,
+          "https://consumet-org-clone.vercel.app/meta/anilist/info/" + query,
           { method: "GET" }
         );
 
         if (trailerDataResp.ok) {
-          // return trailerData.results.data?.[0].trailer.embed_url
           const trailerData = await trailerDataResp.json();
-          const trailerUrl =
-            "https://www.youtube-nocookie.com/embed/" +
-            trailerData.data?.[0].trailer.embed_url
-              ?.split("/")
-              .pop()
-              .split("?")[0] +
-            "?" +
-            "loop=1&autoplay=1&mute=1&iv_load_policy=3&modestbranding=1&start=1";
+          // console.log(trailerData.trailer.id);
+          if (trailerData.hasOwnProperty("trailer")) {
+            trailerUrl =
+              "https://www.youtube-nocookie.com/embed/" +
+              trailerData.trailer.id +
+              "?" +
+              "loop=1&autoplay=1&mute=1&iv_load_policy=3&modestbranding=1&start=1";
+          } else {
+            trailerUrl =
+              "https://www.youtube-nocookie.com/embed/OJAvgHSeIhI?loop=1&autoplay=1&mute=1&iv_load_policy=3&modestbranding=1&start=1";
+          }
 
-          const trailerTitle = trailerData.data?.[0].title;
-          const trailerSynopsis = truncateText(
-            trailerData.data?.[0].synopsis,
-            600
-          );
+          // return trailerData.results.data?.[0].trailer.embed_url
+
+          const trailerTitle = trailerData.title.romaji;
+          const trailerSynopsis = truncateText(trailerData.description, 600);
           const responseData = [trailerUrl, trailerTitle, trailerSynopsis];
           return responseData;
         }
