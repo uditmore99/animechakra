@@ -1,19 +1,3 @@
-export const getTopAiringAnime = async () => {
-  try {
-    const animeData = await fetch(
-      "https://api.consumet.org/anime/gogoanime/top-airing",
-      { method: "GET" }
-    );
-
-    if (animeData.ok) {
-      // return animeData.results.data?.[0].trailer.embed_url
-      return animeData;
-    }
-  } catch (error) {
-    console.log(error);
-  }
-};
-
 export const getAnimeTrailers = async (randomNumber) => {
   var trailerUrl;
   try {
@@ -45,15 +29,22 @@ export const getAnimeTrailers = async (randomNumber) => {
               "?" +
               "loop=1&autoplay=1&mute=1&iv_load_policy=3&modestbranding=1&start=1";
           } else {
-            trailerUrl =
-              "https://www.youtube-nocookie.com/embed/OJAvgHSeIhI?loop=1&autoplay=1&mute=1&iv_load_policy=3&modestbranding=1&start=1";
+            trailerUrl = "useImage";
           }
 
           // return trailerData.results.data?.[0].trailer.embed_url
 
           const trailerTitle = trailerData.title.romaji;
-          const trailerSynopsis = truncateText(trailerData.description, 600);
-          const responseData = [trailerUrl, trailerTitle, trailerSynopsis];
+          const trailerSynopsis = truncateText(trailerData.description, 360);
+          const trailerCover = trailerData.cover;
+          const trailerId = trailerData.id;
+          const responseData = [
+            trailerUrl,
+            trailerTitle,
+            trailerSynopsis,
+            trailerCover,
+            trailerId,
+          ];
           return responseData;
         }
       } catch (error) {
@@ -65,6 +56,21 @@ export const getAnimeTrailers = async (randomNumber) => {
   } catch (error) {}
 };
 
+export const getTopAiringAnime = async () => {
+  try {
+    const animeData = await fetch(
+      "https://api.consumet.org/anime/gogoanime/top-airing",
+      { method: "GET" }
+    );
+
+    if (animeData.ok) {
+      // return animeData.results.data?.[0].trailer.embed_url
+      return animeData;
+    }
+  } catch (error) {
+    console.log(error);
+  }
+};
 function truncateText(text, maxLength) {
   if (text.length <= maxLength) {
     return text;

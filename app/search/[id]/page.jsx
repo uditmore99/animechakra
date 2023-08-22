@@ -10,6 +10,8 @@ const SearchAnime = ({ params }) => {
 
   const [animeData, setAnimeData] = useState();
 
+  document.title = "Search Anime";
+
   useEffect(() => {
     setAnimeId(convertURLString(params.id));
   }, [params.id]);
@@ -34,7 +36,7 @@ const SearchAnime = ({ params }) => {
   }, [animeId]);
 
   if (animeData) {
-    console.log(animeData);
+    // console.log(animeData);
   }
 
   return (

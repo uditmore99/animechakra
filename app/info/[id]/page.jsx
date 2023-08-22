@@ -30,7 +30,8 @@ const DetailsPage = ({ params }) => {
 
   if (animeInfoData) {
     const { title, description, genres, image, cover } = animeInfoData;
-    console.log(animeInfoData);
+
+    document.title = title.userPreferred;
     return (
       <>
         <div
