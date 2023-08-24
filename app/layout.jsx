@@ -11,6 +11,13 @@ const RootLayout = ({ children }) => {
   return (
     <>
       <html lang="en">
+        <head>
+          <link
+            rel="icon"
+            href="/assets/favicon/animechakra_favicon.ico"
+            sizes="any"
+          />
+        </head>
         <body className="bg-anime-blue">
           <div className="main">
             <div className="gradient"></div>

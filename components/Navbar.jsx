@@ -2,7 +2,7 @@ import React from "react";
 
 const Navbar = () => {
   return (
-    <nav className=" bg-anime-blue flex flex-row sm:flex-row items-center justify-between p-4">
+    <nav className="sm:fixed z-30 top-0 w-full bg-anime-blue flex flex-row sm:flex-row items-center justify-between p-4">
       <div className="flex  items-center  lg:mb-0 lg:mr-4">
         <div className="mr-4">
           <a href="/" className="text-white hover:text-gray-500">

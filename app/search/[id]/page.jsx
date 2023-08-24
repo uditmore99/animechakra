@@ -10,13 +10,12 @@ const SearchAnime = ({ params }) => {
 
   const [animeData, setAnimeData] = useState();
 
-  document.title = "Search Anime";
-
   useEffect(() => {
     setAnimeId(convertURLString(params.id));
   }, [params.id]);
 
   useEffect(() => {
+    document.title = "Search Anime";
     const getSearchData = async () => {
       const serRes = await fetch(`/api/search`, {
         method: "POST",
@@ -41,22 +40,24 @@ const SearchAnime = ({ params }) => {
 
   return (
     <>
-      <div className="grid grid-cols-2 md:grid-cols-5 m-6 gap-10 sm:grid-cols-5 sm:gap-5">
-        {animeData?.map((anime) => (
-          <SearchAnimeCard
-            key={anime.id}
-            id={anime.id}
-            title={anime.title.userPreferred}
-            genre={anime?.genres.map((genre) => " " + genre + " ")}
-            imageurl={anime.image}
-            coverUrl={anime.cover}
-            description={anime.description}
-            popularity={anime.popularity}
-            rating={anime.rating}
-            releaseDate={anime.releaseDate}
-            type={anime.type}
-          />
-        ))}
+      <div className="sm:mt-24">
+        <div className="grid grid-cols-2 md:grid-cols-5 m-6 md:m-12 lg:m-18 gap-6 md:gap-12 lg:gap-18  sm:grid-cols-5 sm:gap-5">
+          {animeData?.map((anime) => (
+            <SearchAnimeCard
+              key={anime.id}
+              id={anime.id}
+              title={anime.title.userPreferred}
+              genre={anime?.genres.map((genre) => " " + genre + " ")}
+              imageurl={anime.image}
+              coverUrl={anime.cover}
+              description={anime.description}
+              popularity={anime.popularity}
+              rating={anime.rating}
+              releaseDate={anime.releaseDate}
+              type={anime.type}
+            />
+          ))}
+        </div>
       </div>
     </>
   );

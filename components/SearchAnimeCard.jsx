@@ -31,7 +31,7 @@ const SearchAnimeCard = ({
     >
       <div
         // href={`/info/${title}`}
-        className="bg-white transition hover:scale-110 rounded-xl overflow-hidden relative hover:cursor-pointer shadow-xl "
+        className="bg-white h-full transition hover:scale-105 rounded-xl overflow-hidden relative hover:cursor-pointer shadow-xl "
       >
         <img className="w-full h-full " src={imageurl} alt={title} />
         <div className="absolute inset-0 p-4 flex flex-col justify-end bg-gradient-to-t from-black to-transparent">

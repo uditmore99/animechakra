@@ -49,13 +49,13 @@ const VideoCarousel = () => {
             title="Anime Trailer"
           ></iframe>
         )}
-
-        <div className=" absolute top-[20%] md:top-[20&] ml-16 md:ml-16">
-          <p className="text-white  text-xl md:text-5xl h-full w-[100%] z-40 lg:text-6xl font-bold drop-shadow-2xl">
+        {/*   md:top-[40&] */}
+        <div className=" absolute top-[15%] md:top-[20%] lg:top-[25%] sm:ml-16 ml-3">
+          <p className="text-white lg:text-6xl md:text-3xl text-2xl h-full w-[100%] z-40  font-bold drop-shadow-2xl">
             {topAiringAnimeTitle}
           </p>
           <p
-            className="text-white text-[8px] md:text-lg mt-3 md:mt-8 w-[90%] md:w-[80%] lg:w-[50%] drop-shadow-2xl "
+            className="text-white text-[15px] md:text-lg mt-3 md:mt-8 w-[90%] md:w-[80%] lg:w-[50%] drop-shadow-2xl "
             dangerouslySetInnerHTML={{ __html: topAiringAnimeSynopsis }}
           />
           {topAiringAnimeId ? (
