@@ -50,17 +50,18 @@ const VideoCarousel = () => {
           ></iframe>
         )}
         {/*   md:top-[40&] */}
-        <div className=" absolute top-[15%] md:top-[20%] lg:top-[25%] sm:ml-16 ml-3">
-          <p className="text-white lg:text-6xl md:text-3xl text-2xl h-full w-[100%] z-40  font-bold drop-shadow-2xl">
+        <div className=" absolute top-[3%] md:top-[20%] lg:top-[25%]  m-6 mt-0 md:m-12 lg:m-16  ">
+          <p className="text-white lg:text-6xl md:text-3xl text-xl h-full w-[100%] z-40  font-bold drop-shadow-2xl">
             {topAiringAnimeTitle}
           </p>
           <p
-            className="text-white text-[15px] md:text-lg mt-3 md:mt-8 w-[90%] md:w-[80%] lg:w-[50%] drop-shadow-2xl "
+            className="text-white text-[9px] md:text-lg mt-3 md:mt-8 w-[90%] md:w-[80%] lg:w-[50%] drop-shadow-2xl "
             dangerouslySetInnerHTML={{ __html: topAiringAnimeSynopsis }}
           />
+          <div className="m-1 md:m-6 lg:m-9"></div>
           {topAiringAnimeId ? (
             <a
-              className="w-24 h-6 m-3 text-center absolute bg-white hover:opacity-75 opacity-100 rounded-lg"
+              className="min-w-fit bg-gray-200 py-1 px-2 rounded-md text-center text-[9px] md:text-base lg:text-lg m-2"
               href={`/info/${topAiringAnimeId}`}
             >
               More info
