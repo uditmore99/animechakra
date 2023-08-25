@@ -45,7 +45,7 @@ const DetailsPage = ({ params }) => {
               "--image-url": `url(${image})`,
               "--cover-url": `url(${cover})`,
             }}
-            className="absolute inset-0 z-[-50] md:w-[98vw] w-screen h-screen bg-cover bg-center brightness-90 filter blur-3xl bg-[image:var(--image-url)] md:bg-[image:var(--cover-url)] sm:bg-[image:var(--cover-url)]"
+            className="fixed inset-0 z-[-50] md:w-[98vw] w-screen h-screen bg-cover bg-center brightness-90 filter blur-3xl bg-[image:var(--image-url)] md:bg-[image:var(--cover-url)] sm:bg-[image:var(--cover-url)]"
           />
 
           <div className="relative z-10 min-h-screen flex flex-col sm:flex-row items-center justify-center">
