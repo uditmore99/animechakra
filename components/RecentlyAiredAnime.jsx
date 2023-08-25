@@ -1,31 +1,29 @@
 "use client";
-
-import { useState, useEffect } from "react";
-import { getTopAiringAnime } from "@/utils/getTopAiringAnimeData";
-import AnimeCard from "./AnimeCard";
+import React, { useEffect, useState } from "react";
 import SearchAnimeCard from "./SearchAnimeCard";
+import { getRecentAnime } from "@/utils/getTopAiringAnimeData";
 
-const PopularAnime = () => {
-  const [trendingAnime, setTrendingAnime] = useState();
+const RecentlyAiredAnime = () => {
+  const [recentlyAired, setRecentlyAired] = useState();
   useEffect(() => {
-    const getTrendingAnime = async () => {
-      const serRes = await getTopAiringAnime();
+    const getRecentlyAiredAnime = async () => {
+      const serRes = await getRecentAnime();
       const response = await serRes.json();
-      setTrendingAnime(response.results);
+      setRecentlyAired(response.results);
       // console.log(trendingAnime);
     };
-    getTrendingAnime();
+    getRecentlyAiredAnime();
   }, []);
 
   return (
-    <div>
-      {/* Trending Anime */}
+    <>
+      {/* Recently Aired Episodes */}
       <div className="text-white font-bold m-4 text-3xl md:text-4xl lg:text-5xl">
-        Trending Anime
+        Recently Aired Anime
       </div>
       <div className="grid grid-cols-2 md:grid-cols-5 m-6 gap-10 sm:grid-cols-5 sm:gap-5">
-        {console.log(trendingAnime)}
-        {trendingAnime?.map((anime) => (
+        {/* {console.log(trendingAnime)} */}
+        {recentlyAired?.map((anime) => (
           <SearchAnimeCard
             key={anime.id}
             id={anime.id}
@@ -35,8 +33,8 @@ const PopularAnime = () => {
           />
         ))}
       </div>
-    </div>
+    </>
   );
 };
 
-export default PopularAnime;
+export default RecentlyAiredAnime;

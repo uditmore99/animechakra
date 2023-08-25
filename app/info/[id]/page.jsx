@@ -20,8 +20,13 @@ const DetailsPage = ({ params }) => {
       //   const serRes = await getAnimeInfo(animeInfoTitle);
 
       if (serRes.ok) {
-        const respData = await serRes?.json();
-        setAnimeInfoData(await respData);
+        try {
+          const respData = await serRes.json();
+          setAnimeInfoData(await respData);
+        } catch (error) {
+          console.log(error);
+          location.reload();
+        }
         // console.log(animeInfoData);
       }
     };

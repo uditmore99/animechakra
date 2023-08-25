@@ -21,12 +21,17 @@ const VideoCarousel = () => {
       });
       if (serRes.ok) {
         // console.log(response);
-        const response = await serRes.json();
-        setTopAiringAnimeTrailerUrl(response[0]);
-        setTopAiringAnimeTitle(response[1]);
-        setTopAiringAnimeSynopsis(response[2]);
-        setTopAiringAnimeCover(response[3]);
-        setTopAiringAnimeId(response[4]);
+        try {
+          const response = await serRes.json();
+          setTopAiringAnimeTrailerUrl(response[0]);
+          setTopAiringAnimeTitle(response[1]);
+          setTopAiringAnimeSynopsis(response[2]);
+          setTopAiringAnimeCover(response[3]);
+          setTopAiringAnimeId(response[4]);
+        } catch (error) {
+          console.log(error);
+          location.reload();
+        }
       }
     };
     getTopAiringAnime();
