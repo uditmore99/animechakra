@@ -1,8 +1,8 @@
 export const getAnimeInfo = async (animeInfoTitle) => {
   try {
     const response = await fetch(
-      // `https://api.consumet.org/meta/anilist/advanced-search?id=${animeInfoTitle}`,
-      `https://api.consumet.org/meta/anilist/info/${animeInfoTitle}?provider=gogoanime`,
+      // `https://consumet-org-clone.vercel.app/meta/anilist/advanced-search?id=${animeInfoTitle}`,
+      `https://api.consumet.org/meta/anilist/info/${animeInfoTitle}`,
 
       { method: "GET" }
     );

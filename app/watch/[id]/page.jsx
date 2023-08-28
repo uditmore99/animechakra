@@ -34,7 +34,7 @@ const Watch = ({ params }) => {
   }, [animeInfoTitle]);
 
   if (animeInfoData) {
-    const { episodes } = animeInfoData;
+    const { id, episodes } = animeInfoData;
     episodes.sort((a, b) => a.number - b.number);
     return (
       <>
@@ -43,7 +43,8 @@ const Watch = ({ params }) => {
             {episodes?.map((anime) => (
               <EpisodeCard
                 key={anime.id}
-                id={anime.id}
+                id={id}
+                episodeid={anime.id}
                 title={anime.title}
                 image={anime.image}
                 description={anime.description}
