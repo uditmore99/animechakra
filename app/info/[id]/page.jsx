@@ -83,7 +83,7 @@ const DetailsPage = ({ params }) => {
               </div>
               <a href={`/watch/${params.id}`}>
                 <div className="bg-green-500 h-12 w-32 text-center m-auto md:m-6 lg:m-6 rounded-lg hover:font-semibold  text-white hover:scale-105 transition">
-                  <p className="p-3">Watch Now</p>
+                  <p className="p-3 pb-36">Watch Now</p>
                 </div>
               </a>
             </div>
