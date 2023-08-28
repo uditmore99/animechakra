@@ -41,7 +41,7 @@ const SearchAnime = ({ params }) => {
   return (
     <>
       <div className="sm:mt-24">
-        <div className="grid grid-cols-2 md:grid-cols-5 m-6 md:m-12 lg:m-18 gap-6 md:gap-12 lg:gap-18  sm:grid-cols-5 sm:gap-5">
+        <div className="grid grid-cols-2 md:grid-cols-5 m-6 md:m-12 lg:m-18 gap-6 md:gap-6 lg:gap-18  sm:grid-cols-5 sm:gap-5">
           {animeData?.map((anime) => (
             <SearchAnimeCard
               key={anime.id}

@@ -1,16 +1,17 @@
 export const getAnimeInfo = async (animeInfoTitle) => {
   try {
     const response = await fetch(
-      `https://api.consumet.org/meta/anilist/advanced-search?id=${animeInfoTitle}`,
+      // `https://api.consumet.org/meta/anilist/advanced-search?id=${animeInfoTitle}`,
+      `https://api.consumet.org/meta/anilist/info/${animeInfoTitle}?provider=gogoanime`,
+
       { method: "GET" }
     );
 
     if (response.ok) {
       try {
         const getAnimeInfoData = await response.json();
-        const animeInfoData = getAnimeInfoData.results?.[0];
-        console.log(animeInfoData);
-        return animeInfoData;
+
+        return getAnimeInfoData;
       } catch (error) {
         console.log(error);
       }

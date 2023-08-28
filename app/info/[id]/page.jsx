@@ -25,7 +25,7 @@ const DetailsPage = ({ params }) => {
           setAnimeInfoData(await respData);
         } catch (error) {
           console.log(error);
-          location.reload();
+          // location.reload();
         }
         // console.log(animeInfoData);
       }
@@ -36,7 +36,7 @@ const DetailsPage = ({ params }) => {
   if (animeInfoData) {
     const { title, description, genres, image, cover } = animeInfoData;
 
-    document.title = title.userPreferred;
+    document.title = title.romaji;
     return (
       <>
         <div className="sm:mt-24">
@@ -74,13 +74,18 @@ const DetailsPage = ({ params }) => {
             <div className="mt-0 md:mt-6 lg:mt-6 sm:ml-4 sm:w-1/2">
               <div className="flex flex-col items-center sm:items-start space-y-4 p-4">
                 <h2 className="text-5xl text-white font-semibold drop-shadow-2xl leading-tight mb-2">
-                  {title.userPreferred}
+                  {title.romaji}
                 </h2>
                 <p
                   className="text-white font-semibold drop-shadow-lg"
                   dangerouslySetInnerHTML={{ __html: description }}
                 />
               </div>
+              <a href={`/watch/${params.id}`}>
+                <div className="bg-green-500 h-12 w-32 text-center m-auto md:m-6 lg:m-6 rounded-lg hover:font-semibold text-white hover:scale-105 transition">
+                  <p className="p-3">Watch Now</p>
+                </div>
+              </a>
             </div>
           </div>
         </div>
