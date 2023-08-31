@@ -2,8 +2,8 @@ export const getAnimeTrailers = async (randomNumber) => {
   var trailerUrl;
   try {
     const response = await fetch(
-      // "https://consumet-org-clone.vercel.app/meta/anilist/trending",
-      "https://api.consumet.org/meta/anilist/trending",
+      "https://consumet-org-clone.vercel.app/meta/anilist/trending",
+      // "https://api.consumet.org/meta/anilist/trending",
 
       { method: "GET" }
     );
@@ -17,8 +17,8 @@ export const getAnimeTrailers = async (randomNumber) => {
 
       try {
         const trailerDataResp = await fetch(
-          // "https://consumet-org-clone.vercel.app/meta/anilist/info/" + query,
-          "https://api.consumet.org/meta/anilist/info/" + query,
+          "https://consumet-org-clone.vercel.app/meta/anilist/info/" + query,
+          // "https://api.consumet.org/meta/anilist/info/" + query,
 
           { method: "GET" }
         );

@@ -30,7 +30,8 @@ const VideoCarousel = () => {
           setTopAiringAnimeId(response[4]);
         } catch (error) {
           console.log(error);
-          location.reload();
+          // getTopAiringAnime();
+          // location.reload();
         }
       }
     };
