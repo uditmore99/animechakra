@@ -63,7 +63,9 @@ export const getAnimeTrailers = async (randomNumber) => {
 export const getTopAiringAnime = async () => {
   try {
     const animeData = await fetch(
-      "https://api.consumet.org/meta/anilist/trending",
+      // "https://api.consumet.org/meta/anilist/trending",
+      "https:/consumet-org-clone.vercel.app/meta/anilist/trending",
+
       { method: "GET" }
     );
 
@@ -79,8 +81,8 @@ export const getTopAiringAnime = async () => {
 export const getRecentAnime = async () => {
   try {
     const animeData = await fetch(
-      "https://api.consumet.org/meta/anilist/recent-episodes?provider=gogoanime",
-      // "https://consumet-org-clone.vercel.app/meta/anilist/recent-episodes?provider=gogoanime",
+      // "https://api.consumet.org/meta/anilist/recent-episodes?provider=gogoanime",
+      "https://consumet-org-clone.vercel.app/meta/anilist/recent-episodes?provider=gogoanime",
 
       { method: "GET" }
     );
