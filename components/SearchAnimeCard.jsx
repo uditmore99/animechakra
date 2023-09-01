@@ -1,5 +1,6 @@
 import Link from "next/link";
 import React from "react";
+import Image from "next/image";
 
 const SearchAnimeCard = ({
   id,
@@ -33,7 +34,14 @@ const SearchAnimeCard = ({
         // href={`/info/${title}`}
         className="bg-white h-full transition hover:scale-105 rounded-xl overflow-hidden relative hover:cursor-pointer shadow-xl "
       >
-        <img className="w-full h-full " src={imageurl} alt={title} />
+        <Image
+          width={360}
+          height={360}
+          className="w-full h-full "
+          src={imageurl}
+          alt={title}
+          loading="lazy"
+        />
         <div className="absolute inset-0 p-4 flex flex-col justify-end bg-gradient-to-t from-black to-transparent">
           <h2 className="text-sm font-semibold text-white md:text-sm lg:text-xl">
             {title}

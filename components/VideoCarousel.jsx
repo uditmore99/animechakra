@@ -47,6 +47,7 @@ const VideoCarousel = () => {
             className="w-full h-[56.25vw] object-cover brightness-50"
             src={topAiringAnimeCover}
             alt="Anime Image"
+            loading="lazy"
           />
         ) : (
           <iframe
