@@ -64,7 +64,7 @@ export const getTopAiringAnime = async () => {
   try {
     const TopAiringAnimeData = await fetch(
       // "https://api.consumet.org/meta/anilist/trending",
-      "https:/consumet-org-clone.vercel.app/meta/anilist/trending",
+      "https://consumet-org-clone.vercel.app/meta/anilist/trending",
 
       { method: "GET" }
     );
