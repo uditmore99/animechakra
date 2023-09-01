@@ -1,9 +1,7 @@
 "use client";
-
+import SearchAnimeCard from "./SearchAnimeCard";
 import { useState, useEffect } from "react";
 import { getTopAiringAnime } from "@/utils/getTopAiringAnimeData";
-import AnimeCard from "./AnimeCard";
-import SearchAnimeCard from "./SearchAnimeCard";
 
 const PopularAnime = () => {
   const [trendingAnime, setTrendingAnime] = useState();
@@ -24,7 +22,7 @@ const PopularAnime = () => {
         Trending Anime
       </div>
       <div className="grid grid-cols-2 md:grid-cols-5 m-6 gap-10 sm:grid-cols-5 sm:gap-5">
-        {console.log(trendingAnime)}
+        {/* {console.log(trendingAnime)} */}
         {trendingAnime?.map((anime) => (
           <SearchAnimeCard
             key={anime.id}

@@ -1,6 +1,6 @@
 "use client";
-import React, { useEffect, useState } from "react";
 import SearchAnimeCard from "./SearchAnimeCard";
+import React, { useEffect, useState } from "react";
 import { getRecentAnime } from "@/utils/getTopAiringAnimeData";
 
 const RecentlyAiredAnime = () => {
