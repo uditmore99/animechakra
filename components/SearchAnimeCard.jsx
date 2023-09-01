@@ -40,7 +40,6 @@ const SearchAnimeCard = ({
           className="w-full h-full "
           src={imageurl}
           alt={title}
-          loading="lazy"
         />
         <div className="absolute inset-0 p-4 flex flex-col justify-end bg-gradient-to-t from-black to-transparent">
           <h2 className="text-sm font-semibold text-white md:text-sm lg:text-xl">
