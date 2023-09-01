@@ -62,16 +62,16 @@ export const getAnimeTrailers = async (randomNumber) => {
 
 export const getTopAiringAnime = async () => {
   try {
-    const animeData = await fetch(
+    const TopAiringAnimeData = await fetch(
       // "https://api.consumet.org/meta/anilist/trending",
       "https:/consumet-org-clone.vercel.app/meta/anilist/trending",
 
       { method: "GET" }
     );
 
-    if (animeData.ok) {
+    if (TopAiringAnimeData.ok) {
       // return animeData.results.data?.[0].trailer.embed_url
-      return animeData;
+      return TopAiringAnimeData;
     }
   } catch (error) {
     console.log(error);
@@ -80,16 +80,16 @@ export const getTopAiringAnime = async () => {
 
 export const getRecentAnime = async () => {
   try {
-    const animeData = await fetch(
+    const recentAnimeData = await fetch(
       // "https://api.consumet.org/meta/anilist/recent-episodes?provider=gogoanime",
       "https://consumet-org-clone.vercel.app/meta/anilist/recent-episodes?provider=gogoanime",
 
       { method: "GET" }
     );
 
-    if (animeData.ok) {
+    if (recentAnimeData.ok) {
       // return animeData.results.data?.[0].trailer.embed_url
-      return animeData;
+      return recentAnimeData;
     }
   } catch (error) {
     console.log(error);
