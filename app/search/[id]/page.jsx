@@ -7,7 +7,9 @@ import { useState, useEffect } from "react";
 const SearchAnime = ({ params }) => {
   // const [animeId, setAnimeId] = useState("");
   const [animeId, setAnimeId] = useState(convertURLString(params.id));
-  const [searchValue, setSearchValue] = useState("");
+  const [searchValue, setSearchValue] = useState(
+    decodeFromURL(window.location.href.split("/").at(-1))
+  );
   const [animeData, setAnimeData] = useState();
 
   const handleInputChange = (e) => {
@@ -121,4 +123,15 @@ function convertURLString(inputString) {
   const finalString = dashedString.replace(/-+/g, "-");
 
   return finalString;
+}
+function decodeFromURL(encodedURL) {
+  if (encodedURL !== "popular") {
+    try {
+      // console.log(decodeURIComponent(encodedURL));
+      return decodeURIComponent(encodedURL);
+    } catch (error) {
+      console.error("Error decoding the URL:", error);
+      return undefined;
+    }
+  } else return undefined;
 }
