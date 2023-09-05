@@ -3,9 +3,6 @@ import { useEffect, useState } from "react";
 
 const Navbar = () => {
   const [searchValue, setSearchValue] = useState();
-  useEffect(() => {
-    setSearchValue(decodeFromURL(window.location.href.split("/").at(-1)));
-  }, []);
 
   const handleInputChange = (e) => {
     setSearchValue(e.target.value);
@@ -19,6 +16,9 @@ const Navbar = () => {
       window.location.href = window.location.origin + "/search/" + searchValue;
     }
   };
+  useEffect(() => {
+    setSearchValue(decodeFromURL(window.location.href.split("/").at(-1)));
+  }, []);
 
   return (
     <nav className="sm:fixed z-30 top-0 w-full bg-anime-blue flex flex-row sm:flex-row items-center justify-between p-3">
