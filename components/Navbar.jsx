@@ -1,10 +1,11 @@
 "use client";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 const Navbar = () => {
-  const [searchValue, setSearchValue] = useState(
-    decodeFromURL(window.location.href.split("/").at(-1))
-  );
+  const [searchValue, setSearchValue] = useState();
+  useEffect(() => {
+    setSearchValue(decodeFromURL(window.location.href.split("/").at(-1)));
+  }, []);
 
   const handleInputChange = (e) => {
     setSearchValue(e.target.value);

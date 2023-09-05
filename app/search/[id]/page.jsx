@@ -7,14 +7,16 @@ import { useState, useEffect } from "react";
 const SearchAnime = ({ params }) => {
   // const [animeId, setAnimeId] = useState("");
   const [animeId, setAnimeId] = useState(convertURLString(params.id));
-  const [searchValue, setSearchValue] = useState(
-    decodeFromURL(window.location.href.split("/").at(-1))
-  );
+  const [searchValue, setSearchValue] = useState();
   const [animeData, setAnimeData] = useState();
 
   const handleInputChange = (e) => {
     setSearchValue(e.target.value);
   };
+
+  useEffect(() => {
+    setSearchValue(decodeFromURL(window.location.href.split("/").at(-1)));
+  }, []);
 
   useEffect(() => {
     setAnimeId(convertURLString(params.id));
