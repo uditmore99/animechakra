@@ -1,4 +1,22 @@
+"use client";
+import { useState } from "react";
+
 const Navbar = () => {
+  const [searchValue, setSearchValue] = useState("");
+
+  const handleInputChange = (e) => {
+    setSearchValue(e.target.value);
+  };
+
+  const handleKeyPress = (e) => {
+    if (e.key === "Enter") {
+      // Handle the Enter key press and navigate to the desired URL
+      e.preventDefault();
+
+      window.location.href = window.location.origin + "/search/" + searchValue;
+    }
+  };
+
   return (
     <nav className="sm:fixed z-30 top-0 w-full bg-anime-blue flex flex-row sm:flex-row items-center justify-between p-4">
       <div className="flex  items-center  lg:mb-0 lg:mr-4">
@@ -36,14 +54,30 @@ const Navbar = () => {
           </a>
         </div>
       </div>
-      <div className="hidden lg:block">
-        <input
-          type="text"
-          className="px-2 py-1 rounded mb-4 lg:mb-0 lg:ml-4 border "
-          placeholder="Search..."
-          // value={(e) => e.target.value}
-          // href={"/search/" + value}
-        />
+      <div className="hidden md:block">
+        <form>
+          <div className="px-2 py-1 rounded ">
+            <div className="flex rounded-md overflow-hidden h-10 w-96">
+              <input
+                id="searchBox"
+                type="text"
+                className="w-full rounded-md rounded-r-none p-3"
+                placeholder="Enter your search query"
+                value={searchValue}
+                onChange={handleInputChange}
+                onKeyDown={handleKeyPress}
+              />
+              <a
+                type="button"
+                id="searchButton"
+                className="bg-indigo-600 text-white p-3 text-lg font-semibold rounded-r-md"
+                href={`../search/${searchValue}`}
+              >
+                Go
+              </a>
+            </div>
+          </div>
+        </form>
       </div>
     </nav>
   );
