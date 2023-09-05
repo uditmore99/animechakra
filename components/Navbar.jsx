@@ -1,5 +1,3 @@
-import React from "react";
-
 const Navbar = () => {
   return (
     <nav className="sm:fixed z-30 top-0 w-full bg-anime-blue flex flex-row sm:flex-row items-center justify-between p-4">
@@ -15,11 +13,24 @@ const Navbar = () => {
           </a>
         </div>
         <div className="mr-4">
-          <a href="/search/popular" className="text-white hover:text-gray-500">
+          <a href="/search/popular" className=" md:hidden">
+            <img
+              width="30"
+              height="30"
+              src="https://img.icons8.com/ios-glyphs/30/FFFFFF/search--v1.png"
+              alt="search--v1"
+            />
+          </a>
+        </div>
+        <div className="mr-4">
+          <a
+            href="/search/popular"
+            className="text-white hover:text-gray-500 hidden md:block lg:block"
+          >
             Popular
           </a>
         </div>
-        <div>
+        <div className="mr-4">
           <a href="/" className="text-white hover:text-gray-500">
             Profile
           </a>

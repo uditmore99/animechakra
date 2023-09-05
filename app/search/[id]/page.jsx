@@ -7,8 +7,12 @@ import { useState, useEffect } from "react";
 const SearchAnime = ({ params }) => {
   // const [animeId, setAnimeId] = useState("");
   const [animeId, setAnimeId] = useState(convertURLString(params.id));
-
+  const [searchValue, setSearchValue] = useState("");
   const [animeData, setAnimeData] = useState();
+
+  const handleInputChange = (e) => {
+    setSearchValue(e.target.value);
+  };
 
   useEffect(() => {
     setAnimeId(convertURLString(params.id));
@@ -34,6 +38,15 @@ const SearchAnime = ({ params }) => {
     getSearchData();
   }, [animeId]);
 
+  const handleKeyPress = (e) => {
+    if (e.key === "Enter") {
+      // Handle the Enter key press and navigate to the desired URL
+      e.preventDefault();
+
+      window.location.href = window.location.origin + "/search/" + searchValue;
+    }
+  };
+
   if (animeData) {
     // console.log(animeData);
   }
@@ -41,6 +54,32 @@ const SearchAnime = ({ params }) => {
   return (
     <>
       <div className="sm:mt-24">
+        <div className="md:hidden">
+          <form>
+            <div className="flex gap-3 p-6">
+              <div className="flex rounded-md overflow-hidden w-full">
+                <input
+                  id="searchBox"
+                  type="text"
+                  className="w-full rounded-md rounded-r-none p-3"
+                  placeholder="Enter your search query"
+                  value={searchValue}
+                  onChange={handleInputChange}
+                  onKeyDown={handleKeyPress}
+                />
+                <a
+                  type="button"
+                  id="searchButton"
+                  className="bg-indigo-600 text-white p-3 text-lg font-semibold rounded-r-md"
+                  href={`../search/${searchValue}`}
+                >
+                  Go
+                </a>
+              </div>
+            </div>
+          </form>
+        </div>
+
         <div className="grid grid-cols-2 md:grid-cols-5 m-6 md:m-12 lg:m-18 gap-6 md:gap-6 lg:gap-18  sm:grid-cols-5 sm:gap-5">
           {animeData?.map((anime) => (
             <SearchAnimeCard
