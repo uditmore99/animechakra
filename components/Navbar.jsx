@@ -56,26 +56,24 @@ const Navbar = () => {
       </div>
       <div className="hidden md:block">
         <form>
-          <div className="px-2 py-1 rounded ">
-            <div className="flex rounded-md overflow-hidden h-10 w-96">
-              <input
-                id="searchBox"
-                type="text"
-                className="w-full rounded-md rounded-r-none p-3"
-                placeholder="Enter your search query"
-                value={searchValue}
-                onChange={handleInputChange}
-                onKeyDown={handleKeyPress}
-              />
-              <a
-                type="button"
-                id="searchButton"
-                className="bg-indigo-600 text-white p-3 text-lg font-semibold rounded-r-md"
-                href={`../search/${searchValue}`}
-              >
-                Go
-              </a>
-            </div>
+          <div className="flex rounded-md overflow-hidden h-10 w-96">
+            <input
+              id="searchBox"
+              type="text"
+              className="w-full rounded-md rounded-r-none p-3"
+              placeholder="Enter your search query"
+              value={searchValue}
+              onChange={handleInputChange}
+              onKeyDown={handleKeyPress}
+            />
+            <a
+              type="button"
+              id="searchButton"
+              className="bg-indigo-600 text-white  p-2 text-lg font-semibold rounded-r-md"
+              href={`../search/${searchValue}`}
+            >
+              Go
+            </a>
           </div>
         </form>
       </div>
