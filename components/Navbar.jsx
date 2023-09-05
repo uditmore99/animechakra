@@ -18,9 +18,9 @@ const Navbar = () => {
   };
 
   return (
-    <nav className="sm:fixed z-30 top-0 w-full bg-anime-blue flex flex-row sm:flex-row items-center justify-between p-4">
-      <div className="flex  items-center  lg:mb-0 lg:mr-4">
-        <div className="mr-4">
+    <nav className="sm:fixed z-30 top-0 w-full bg-anime-blue flex flex-row sm:flex-row items-center justify-between p-3">
+      <div className="flex  items-center  lg:mb-0 lg:mr-3">
+        <div className="mr-3">
           <a href="/" className="text-white hover:text-gray-500">
             <img
               src="/assets/GIFs/animechakra.gif"
@@ -30,7 +30,7 @@ const Navbar = () => {
             />
           </a>
         </div>
-        <div className="mr-4">
+        <div className="mr-3">
           <a href="/search/popular" className=" md:hidden">
             <img
               width="30"
@@ -40,7 +40,7 @@ const Navbar = () => {
             />
           </a>
         </div>
-        <div className="mr-4">
+        <div className="mr-3">
           <a
             href="/search/popular"
             className="text-white hover:text-gray-500 hidden md:block lg:block"
@@ -48,7 +48,7 @@ const Navbar = () => {
             Popular
           </a>
         </div>
-        <div className="mr-4">
+        <div className="mr-3">
           <a href="/" className="text-white hover:text-gray-500">
             Profile
           </a>
