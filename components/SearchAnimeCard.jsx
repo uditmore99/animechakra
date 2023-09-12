@@ -15,26 +15,13 @@ const SearchAnimeCard = ({
   type,
 }) => {
   const displayedGenres = genre.slice(0, 3);
-  // const finalTitle = title + "-" + type;
+
   const finalTitle = id;
 
   return (
-    <Link
-      href={`/info/${finalTitle}`}
-      // id={id}
-      // title={title}
-      // genre={genre}
-      // imageurl={imageurl}
-      // description={description}
-      // popularity={popularity}
-      // rating={rating}
-      // type={type}
-    >
-      <div
-        // href={`/info/${title}`}
-        className="bg-white h-full transition hover:scale-105 rounded-xl overflow-hidden relative hover:cursor-pointer shadow-xl "
-      >
-        <img
+    <Link href={`/info/${finalTitle}`}>
+      <div className="bg-white h-full transition hover:scale-105 rounded-xl overflow-hidden relative hover:cursor-pointer shadow-xl ">
+        <Image
           width={360}
           height={360}
           className="w-full h-full "
