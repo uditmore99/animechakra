@@ -12,9 +12,7 @@ const RecentlyAiredAnime = () => {
     isFetching, // you can add loading states as well
   } = useQuery({
     queryFn: async () => {
-      const { data } = await axios.get(
-        "https://consumet-org-clone.vercel.app/meta/anilist/recent-episodes?provider=gogoanime"
-      );
+      const { data } = await axios.get("/api/recent");
       return data.results;
     },
     queryKey: ["recent-aired-anime"], //to cache it
