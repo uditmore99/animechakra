@@ -1,3 +1,4 @@
+import Providers from "@/components/Providers";
 import "./globals.css";
 
 import Navbar from "@/components/Navbar";
@@ -24,8 +25,10 @@ const RootLayout = ({ children }) => {
           </div>
 
           <main className="app ">
-            <Navbar />
-            {children}
+            <Providers>
+              <Navbar />
+              {children}
+            </Providers>
           </main>
         </body>
       </html>
