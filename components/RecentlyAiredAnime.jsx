@@ -28,7 +28,7 @@ const RecentlyAiredAnime = () => {
             key={anime.id}
             id={anime.id}
             title={anime.title.userPreferred}
-            genre={anime?.genres.map((genre) => " " + genre + " ")}
+            // genre={anime?.genres.map((genre) => " " + genre + " ")}
             imageurl={anime.image}
           />
         ))}

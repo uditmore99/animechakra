@@ -14,7 +14,7 @@ const SearchAnimeCard = ({
   releaseDate,
   type,
 }) => {
-  const displayedGenres = genre.slice(0, 3);
+  // const displayedGenres = genre.slice(0, 3);
   // const finalTitle = title + "-" + type;
   const finalTitle = id;
 
@@ -46,7 +46,7 @@ const SearchAnimeCard = ({
             {title}
           </h2>
           <p className="text-gray-300 text-xs lg:text-sm">
-            {displayedGenres.join(", ")}
+            {/* {displayedGenres.join(", ")} */}
           </p>
         </div>
       </div>
