@@ -31,7 +31,7 @@ export const getAnimeTrailers = async (randomNumber) => {
               "https://www.youtube-nocookie.com/embed/" +
               trailerData.trailer.id +
               "?" +
-              "loop=1&autoplay=1&mute=1&iv_load_policy=3&modestbranding=1&start=1";
+              "loop=1&autoplay=1&playsinline=1&mute=0&iv_load_policy=3&modestbranding=1&start=1";
           } else {
             trailerUrl = "useImage";
           }
