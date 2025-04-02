@@ -3,7 +3,7 @@ export const searchAnime = async (animeQuery) => {
     try {
       const searchData = await fetch(
         // `https://api.consumet.org/meta/anilist/advanced-search?query=${animeQuery}&sort="POPULARITY_DESC"`
-        `https://consumet-org-clone.vercel.app/meta/anilist/advanced-search?query=${animeQuery}&sort="POPULARITY_DESC"`
+        `https://consumet-api-clone-kappa.vercel.app/meta/anilist/advanced-search?query=${animeQuery}&sort="POPULARITY_DESC"`
       );
 
       if (searchData.ok) {
