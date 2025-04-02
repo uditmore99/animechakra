@@ -2,7 +2,7 @@ export const getAnimeTrailers = async (randomNumber) => {
   var trailerUrl;
   try {
     const response = await fetch(
-      "https://consumet-org-clone.vercel.app/meta/anilist/trending",
+      "consumet-api-clone-kappa.vercel.app/meta/anilist/trending",
       // "https://api.consumet.org/meta/anilist/trending",
 
       { method: "GET" }
