@@ -1,7 +1,7 @@
 export const getAnimeInfo = async (animeInfoTitle) => {
   try {
     const response = await fetch(
-      `https://consumet-org-clone.vercel.app/meta/anilist/info/${animeInfoTitle}`,
+      `https://consumet-api-clone-kappa.vercel.app/meta/anilist/info/${animeInfoTitle}`,
       // `https://api.consumet.org/meta/anilist/info/${animeInfoTitle}`,
 
       { method: "GET" }
